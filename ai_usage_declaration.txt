@@ -1,0 +1,48 @@
+========================================================================
+AI USAGE DECLARATION
+========================================================================
+Project Name: QueueLess Landing Page
+Institution: Christ University
+Purpose: proof of AI-assisted engineering and layout creation
+
+This document outlines the usage of AI tools and prompts used to design 
+and build the structure, styles, and simulated scripts of this landing page.
+
+------------------------------------------------------------------------
+1. AI TOOLS USED
+------------------------------------------------------------------------
+- Core Layout & Content: Antigravity Code Assistant (Gemini 3.5 Flash)
+- Graphic Generation: Imagen 3 (Mockup image for mobile phone frame)
+- Verification: Headless Chromium Browser automation test
+
+------------------------------------------------------------------------
+2. CORE PROMPTS USED FOR THE BASIC STRUCTURE
+------------------------------------------------------------------------
+
+* Prompt 1 (For page wireframe and copywriting):
+  "Make a modern landing page for QueueLess: A Centralized Live Queue 
+  Tracking and Pre-Order Web System for Christ University. Explain how 
+  it works, its benefits, and the problems it solves. Include a hero 
+  section, navigation bar, and footer. Use HTML, Tailwind CSS, custom 
+  CSS, and clean JavaScript."
+
+* Prompt 2 (For the active queue fluctuation and playground simulator):
+  "Write vanilla JavaScript to simulate real-time crowd updates at 
+  different university canteen spots. Add an interactive order tracker 
+  where users can select a food item and watch it transition through:
+  Order Processing -> Kitchen Prep (with countdown timer) -> Order Ready 
+  with pick-up barcode."
+
+* Prompt 3 (For the visual mockup asset):
+  "A clean mobile application interface mockup for QueueLess showing 
+  live queue tracking and food ordering for a university canteen. Render 
+  in light theme with a palette of deep blue and bright amber. Pristine 
+  vector layout UI design."
+
+------------------------------------------------------------------------
+3. DEV METHODOLOGY
+------------------------------------------------------------------------
+- Structured layouts styled with custom utility animations.
+- The pre-order simulation is entirely client-side driven to run locally 
+  and immediately demonstrate full portal capabilities.
+========================================================================
