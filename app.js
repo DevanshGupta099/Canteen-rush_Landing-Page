@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 4. INTERACTIVE PRE-ORDER DEMO SIMULATOR
   // ==========================================
   const menuItems = [
-    { id: 1, name: 'Christite Signature Burger', price: '₹95', category: 'Fast Food', rating: 4.8 },
+    { id: 1, name: 'Christite Paneer Burger', price: '₹95', category: 'Fast Food', rating: 4.8 },
     { id: 2, name: 'Spicy Paneer Kathi Roll', price: '₹80', category: 'Snacks', rating: 4.6 },
     { id: 3, name: 'Classic Cold Coffee', price: '₹65', category: 'Beverages', rating: 4.9 },
     { id: 4, name: 'Samosa Chat (Double)', price: '₹50', category: 'Chaats', rating: 4.5 }
