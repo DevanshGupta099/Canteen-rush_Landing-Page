@@ -1,172 +1,48 @@
-/* style.css - Custom Styles and Animations for QueueLess */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-
-:root {
-  --primary: #094074;
-  --primary-light: #1d5c96;
-  --accent: #F5A623;
-  --accent-light: #f7b84b;
-  --bg-soft: #F8FAFC;
-  --text-dark: #0f172a;
-  --text-muted: #64748b;
+/* Custom Wavy Border Utility */
+.wavy-bottom {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: var(--text-dark);
+.wavy-bottom svg {
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-/* Base animations */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+/* Toast Animation */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
   }
-  50% {
-    transform: translateY(-10px) rotate(2deg);
-  }
-}
-
-@keyframes pulse-soft {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(0.98);
-  }
-}
-
-@keyframes ping-slow {
-  0% {
-    transform: scale(1);
+  to {
+    transform: translateY(0);
     opacity: 1;
   }
-  100% {
-    transform: scale(2.2);
+}
+@keyframes slideOutUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
     opacity: 0;
   }
 }
 
-@keyframes shine {
-  0% {
-    left: -100%;
-  }
-  50%, 100% {
-    left: 120%;
-  }
+.toast-enter {
+  animation: slideInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-
-/* Class names for animations */
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-soft {
-  animation: pulse-soft 3s ease-in-out infinite;
-}
-
-.animate-ping-slow {
-  animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-}
-
-/* Card Hover shine effect */
-.shine-hover {
-  position: relative;
-  overflow: hidden;
-}
-
-.shine-hover::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: skewX(-25deg);
-  transition: 0.75s;
-}
-
-.shine-hover:hover::after {
-  animation: shine 1.2s ease-in-out;
-}
-
-/* Reveal on scroll styling */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-delay-100 { transition-delay: 100ms; }
-.reveal-delay-200 { transition-delay: 200ms; }
-.reveal-delay-300 { transition-delay: 300ms; }
-.reveal-delay-400 { transition-delay: 400ms; }
-
-/* Grid Background decorative grid */
-.grid-bg {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(9, 64, 116, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(9, 64, 116, 0.03) 1px, transparent 1px);
-}
-
-/* Glassmorphism utility */
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.glass-dark {
-  background: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Custom interactive stepper styling */
-.step-dot.active {
-  background-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.2);
-}
-
-.step-dot.completed {
-  background-color: #10b981;
-}
-
-.step-line-fill {
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+.toast-exit {
+  animation: slideOutUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
